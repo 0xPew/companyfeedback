@@ -1,3 +1,3 @@
 export default function Pattern() {
-  return <div>Pattern</div>;
+  return <img src="/pattern.svg" alt="pattern" className="pattern" />;
 }
