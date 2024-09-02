@@ -1,12 +1,27 @@
+import { useState } from "react";
+import { MAX_CHARACTERS } from "../lib/constants";
+
 export default function FeedbackForm() {
+  const [text, setText] = useState("");
+
+  const charCount = MAX_CHARACTERS - text.length;
+
   return (
     <form className="form">
-      <textarea id="feedback-textarea" placeholder="" spellCheck={false} />
+      <textarea
+        value={text}
+        onChange={(event) => {
+          setText(event.target.value);
+        }}
+        id="feedback-textarea"
+        placeholder=""
+        spellCheck={false}
+      />
       <label htmlFor="feedback-textarea">
         Enter your feedback here, remember to #hashtag the company
       </label>
       <div>
-        <p className="u-italics">150</p>
+        <p className="u-italics">{charCount}</p>
         <button>
           <span>Submit</span>
         </button>
